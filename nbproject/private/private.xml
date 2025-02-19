@@ -7,8 +7,7 @@
             <file>file:/C:/Users/J0seA/OneDrive/Documentos/NetBeansProjects/tccAlheio/web/telas/informacoes.jsp</file>
             <file>file:/C:/Users/J0seA/OneDrive/Documentos/NetBeansProjects/tccAlheio/web/telas/listaCaes.jsp</file>
             <file>file:/C:/Users/J0seA/OneDrive/Documentos/NetBeansProjects/tccAlheio/web/telas/login.jsp</file>
-            <file>file:/C:/Users/J0seA/OneDrive/Documentos/NetBeansProjects/tccAlheio/web/telas/uploudImagem.jsp</file>
-            <file>file:/C:/Users/J0seA/OneDrive/Documentos/NetBeansProjects/tccAlheio/web/telas/exibirImagem.jsp</file>
+            <file>file:/C:/Users/J0seA/OneDrive/Documentos/NetBeansProjects/tccAlheio/src/java/com/tccAlheio/servlets/UploadImagemServlet.java</file>
         </group>
     </open-files>
 </project-private>

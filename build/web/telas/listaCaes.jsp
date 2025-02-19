@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.sql.*"%>
+<%@page import="java.util.Base64"%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,6 +29,13 @@
             margin: 0 0 10px;
             font-size: 20px;
         }
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
         .btn {
             padding: 10px;
             background-color: #4CAF50;
@@ -50,13 +58,23 @@
             try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 Connection conexao = DriverManager.getConnection(url, usuario, senha);
-                String sql = "SELECT id, nome FROM caes";
+                String sql = "SELECT id, nome, imagem FROM caes"; // Adicionado o campo 'imagem'
                 PreparedStatement stmt = conexao.prepareStatement(sql);
                 ResultSet rs = stmt.executeQuery();
                 
                 while (rs.next()) {
+                    byte[] imagemBytes = rs.getBytes("imagem"); // Recupera a imagem do banco de dados
+                    String imagemBase64 = null;
+                    if (imagemBytes != null) {
+                        imagemBase64 = Base64.getEncoder().encodeToString(imagemBytes); // Converte para base64
+                    }
         %>
         <div class="card">
+            <% if (imagemBase64 != null) { %>
+                <img src="data:image/jpeg;base64,<%= imagemBase64 %>" alt="<%= rs.getString("nome") %>">
+            <% } else { %>
+                <img src="https://via.placeholder.com/150" alt="Imagem não disponível">
+            <% } %>
             <h2><%= rs.getString("nome") %></h2>
             <a href="informacoes.jsp?id=<%= rs.getInt("id") %>"><button class="btn">Informações</button></a>
         </div>
