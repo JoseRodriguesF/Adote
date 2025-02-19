@@ -66,7 +66,7 @@
     </style>
 </head>
 <body>
-
+    <a href="listaCaes.jsp">Login</a>
     <div class="container">
         <% if (imagemBase64 != null) { %>
             <img src="data:image/jpeg;base64,<%= imagemBase64 %>" class="foto-preview">

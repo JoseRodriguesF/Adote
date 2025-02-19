@@ -48,6 +48,7 @@
     </style>
 </head>
 <body>
+    <a href="cadastroCaes.jsp">Cadastro</a>
     <h1 style="text-align: center;">Lista de Cães</h1>
     <div class="container">
         <%
